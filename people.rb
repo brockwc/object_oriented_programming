@@ -4,8 +4,8 @@ class Person
     @name = name
   end
 
-  def greeting
-    puts "Hi, my name is #{name}."
+  def to_s
+    puts "Hi, my name is #{@name}."
   end
 
 end
@@ -24,3 +24,6 @@ class Instructor < Person
     puts "Everything in Ruby is an object."
   end
 end
+
+chris = Instructor.new("Chris")
+puts chris
