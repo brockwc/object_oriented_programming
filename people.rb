@@ -4,9 +4,13 @@ class Person
     @name = name
   end
 
+  def greeting
+    puts "Hi, my name is #{name}."
+  end
+
 end
 
-class Student
+class Student < Person
 
   def learn
     puts "I get it!"
@@ -14,7 +18,7 @@ class Student
 
 end
 
-class Instructor
+class Instructor < Person
   
   def teach
     puts "Everything in Ruby is an object."
