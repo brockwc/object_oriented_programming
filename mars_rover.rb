@@ -1,4 +1,4 @@
-class Commander
+ class Commander
 
   def initialize
     puts "Enter grid as x,y"

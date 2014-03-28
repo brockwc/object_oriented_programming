@@ -2,12 +2,24 @@ require './mars_rover2'
 
 class Commander
 
-  def create_rover(start)
-    coords = start.split(" ")
+  def initialize
+    puts "Enter grid size (x y):"
+    grid = gets.chomp
+    grid = grid.split(" ")
+    @grid_x = grid[0]
+    @grid_y = grid[1]
+  end
+
+  def create_rover
+    puts "Add a starting position and direction (N E S W) for the rover (x,y,d):"
+    create = gets.chomp
+    coords = create.split(" ")
     @rover = Rover.new(coords[0], coords[1], coords[2])
   end
 
-  def move_rover(movements)
+  def move_rover
+    puts "Using 'L' for a left turn, 'R' for a right turn and 'M' to move, send the rover a set of directions:"
+    movements = gets.chomp
     movements.split("").each do |movement|
       if movement == "L"
         @rover.turn_left
@@ -26,7 +38,9 @@ class Commander
 end
 
 command = Commander.new
-command.create_rover("1 2 N")
+command.create_rover
+command.move_rover
+command.create_rover
+command.move_rover
 command.display_rover
-command.move_rover("MMRMM")
 command.display_rover
