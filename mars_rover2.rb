@@ -10,11 +10,11 @@ class Rover
     if @d == "N"
       @y += 1
     elsif @d == "E"
-      @x += 1
+      @x += 1 
     elsif @d == "S"
       @y -= 1
     else @d == "W"
-      @x += 1
+      @x -= 1 
     end
   end 
 
