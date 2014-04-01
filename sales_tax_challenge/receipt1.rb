@@ -1,19 +1,22 @@
 require './item.rb'
 
-book = Tax_exempt.new(12.49, "book")
+book = TaxExempt.new(12.49, "book")
 music_CD = Item.new(14.99, "music CD")
-chocolate_bar = Tax_exempt.new(0.85, "chocolate bar")
+chocolate_bar = TaxExempt.new(0.85, "chocolate bar")
 
-def receipt(*item)
-  total = 0
-  sales = 0
-  item.each do |item|
-    puts "1 #{item.name}: #{item.tax}"
-    total += item.tax
-    sales += item.sales_tax
-  end
-  puts "Sales Tax: #{sales.round(2)}"
-  puts "Total: #{total.round(2)}"
-end
+cart1 = Cart.new(book,music_CD,chocolate_bar)
+cart1.receipt
 
-receipt(book,music_CD,chocolate_bar)
+import_choc = ImportedExempt.new(10.00, "imported box of chocolates")
+import_perf = Imported.new(47.50, "imported bottle of perfume")
+
+cart2 = Cart.new(import_choc,import_perf)
+cart2.receipt
+
+import_perf = Imported.new(27.99, "imported bottle of perfume")
+bot_perfume = Item.new(18.99, "bottle of perfume")
+pills = TaxExempt.new(9.75, "packet of headache pills")
+import_choc = ImportedExempt.new(11.25, "box of imported choclates")
+
+cart3 = Cart.new(import_perf,bot_perfume,pills,import_choc)
+cart3.receipt
